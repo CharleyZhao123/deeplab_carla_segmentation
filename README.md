@@ -7,7 +7,7 @@
 
 # 数据
 
-数据使用自动驾驶平台Carla内置的[Semantic segmentation camera](https://carla.readthedocs.io/en/0.9.11/ref_sensors/#semantic-segmentation-camera)生成，共22438张大小为512x256的仿真场景图及其对应的分割标注。分割标注按照Carla平台默认类别进行设置：
+数据使用自动驾驶平台Carla内置的[Semantic segmentation camera](https://carla.readthedocs.io/en/0.9.11/ref_sensors/#semantic-segmentation-camera)生成，共22438张大小为512x256的仿真场景图及其对应的分割标注。分割标注按照Carla平台默认类别进行设置。
 
 注：实际生成数据中不包括第0、3类数据，并且第12，17类数据量极少。
 
@@ -202,6 +202,8 @@ python inference.py --config config_Carla.json --model ./saved/best_model.pth --
 ```
 
 注：其中images_folder为需要进行测试的图像的文件夹地址
+
+训练好的模型：https://drive.google.com/file/d/1rc6P19kqMHtSu70oJXNrfq33lwbMETxV/view?usp=sharing
 
 ## 强化学习系统调用接口
 
