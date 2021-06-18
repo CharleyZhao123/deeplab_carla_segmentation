@@ -1,0 +1,78 @@
+{
+    "name": "320_2_4_mobile2_carla",
+    "n_gpu": 2,
+    "use_synch_bn": false,
+
+    "arch": {
+        "type": "SegModel_mobile",
+        "args": {
+            "backbone": "mobile",
+            "mode": "seg_train",
+            "freeze_bn": false,
+            "freeze_backbone": false
+        }
+    },
+
+    "train_loader": {
+        "type": "Carla",
+        "args":{
+            "data_dir": "/space1/zhaoqing/dataset/Carla_seg",
+            "batch_size": 32,
+            "base_size": 256,
+            "crop_size": 256,
+            "augment": false,
+            "shuffle": true,
+            "scale": true,
+            "flip": true,
+            "rotate": true,
+            "blur": false,
+            "split": "train",
+            "num_workers": 8
+        }
+    },
+
+    "val_loader": {
+        "type": "Carla",
+        "args":{
+            "data_dir": "/space1/zhaoqing/dataset/Carla_seg",
+            "batch_size": 32,
+            "crop_size": 256,
+            "val": false,
+            "split": "val",
+            "num_workers": 4
+        }
+    },
+
+    "optimizer": {
+        "type": "SGD",
+        "differential_lr": true,
+        "args":{
+            "lr": 0.1,
+            "weight_decay": 1e-4,
+            "momentum": 0.9
+        }
+    },
+
+    "loss": "CrossEntropyLoss2d",
+    "ignore_index": 255,
+    "lr_scheduler": {
+        "type": "Poly",
+        "args": {}
+    },
+
+    "trainer": {
+        "epochs": 500,
+        "save_dir": "saved/",
+        "save_period": 10,
+  
+        "monitor": "max Mean_IoU",
+        "early_stop": 10,
+        
+        "tensorboard": true,
+        "log_dir": "saved/runs",
+        "log_per_iter": 20,
+
+        "val": true,
+        "val_per_epochs": 5
+    }
+}
