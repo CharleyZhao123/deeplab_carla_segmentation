@@ -84,11 +84,11 @@ deeplab_carla_segmentation/
 ```json
 {
     "name": "320_2_4_mobile2_carla",
-    "n_gpu": 2,  // 使用GPU的数目，需要与执行训练时设定的gpu数目匹配
+    "n_gpu": 2,
     "use_synch_bn": false,
 
     "arch": {
-        "type": "SegModel_mobile",  // 我们使用的模型名称
+        "type": "SegModel_mobile",
         "args": {
             "backbone": "mobile",
             "mode": "seg_train",
@@ -100,7 +100,6 @@ deeplab_carla_segmentation/
     "train_loader": {
         "type": "Carla",
         "args":{
-						// 需要提前在对应的文件夹中准备好数据集
             "data_dir": "/space1/zhaoqing/dataset/Carla_seg",
             "batch_size": 32,
             "base_size": 256,
@@ -119,7 +118,6 @@ deeplab_carla_segmentation/
     "val_loader": {
         "type": "Carla",
         "args":{
-						// 验证数据集同理
             "data_dir": "/space1/zhaoqing/dataset/Carla_seg",
             "batch_size": 32,
             "crop_size": 256,
