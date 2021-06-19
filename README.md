@@ -2,7 +2,7 @@
 # 概述
 
 本demo是对论文[End-to-End Model-Free Reinforcement Learning for Urban Driving using Implicit Affordances (CVPR2020)](https://arxiv.org/abs/1911.10868)中基于语义分割的Encoder的第三方复现。仿真图像数据生成自Carla仿真平台；语义分割模型为DeepLab V3+，backbone由ResNet18更换为MobileNet以减少参数，适应强化学习训练。
-
+![img1](static/img1.png)
 
 
 # 数据
@@ -17,7 +17,7 @@
 
 生成的数据示例：
 
-
+![img2](static/img2.png)
 
 # 环境依赖
 
@@ -37,7 +37,7 @@ opencv-python==4.1.0.25
 DeepLab是由来自Google的团队最早于2014年提出的语义分割算法，目前已经推出了三个大版本（V1、V2、V3）和一个小版本V3+，一脉相承，目前最新的V3+版本于2018年提出，在很多benchmark上表现优秀，目前仍然是很多方法的对比Baseline。
 
 为了减少模型参数，我们使用MobileNet作为Backbone。
-
+![img3](static/img3.png)
 
 
 ## 代码结构
@@ -219,10 +219,13 @@ image_path为要进行编码的图像的地址
 
 ## 模型性能
 
-
+Pixel Accuracy: 0.95
+Mean IoU: 0.679
 
 ## 分割结果
+![img](static/img.gif)
 
+![test](static/test.gif)
 
 
 # 参考和致谢
